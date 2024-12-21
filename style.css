@@ -1,0 +1,15 @@
+#container {
+    display: flex;
+}
+
+.row {
+    flex-direction: column;
+    display: flex;
+    
+}
+
+.item {
+    border: gray 1px solid;
+    height: 20px;
+    width: 20px;
+}
