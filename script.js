@@ -10,6 +10,9 @@ function renderBoard(rowsBoard, columnsBoard) {
         for (let columnIndex = 0; columnIndex < columnsBoard; columnIndex++) {
             let columnItem = document.createElement("div");
             columnItem.classList.add("item");
+            columnItem.addEventListener("mouseover", () => {
+                columnItem.style.backgroundColor = "black";
+            });
             rowDiv.appendChild(columnItem);
         }
     }
