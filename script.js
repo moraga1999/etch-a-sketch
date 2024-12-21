@@ -1,15 +1,14 @@
-let rowsBoard = 16;
-let columnsBoard = 16;
+const container = document.querySelector("#container");
 
-function renderBoard(rowsBoard, columnsBoard) {
-    const container = document.querySelector("#container");
-    for (let rowIndex = 0; rowIndex < rowsBoard; rowIndex++) {
+function renderBoard(squares) {    
+    for (let rowIndex = 0; rowIndex < squares; rowIndex++) {
         let rowDiv = document.createElement("div");
         rowDiv.classList.add("row");
         container.appendChild(rowDiv);
-        for (let columnIndex = 0; columnIndex < columnsBoard; columnIndex++) {
+        for (let columnIndex = 0; columnIndex < squares; columnIndex++) {
             let columnItem = document.createElement("div");
-            columnItem.classList.add("item");
+            squareSize = 800 / squares;
+            columnItem.style.cssText = `width: ${squareSize}px; height: ${squareSize}px;`;
             columnItem.addEventListener("mouseover", () => {
                 columnItem.style.backgroundColor = "black";
             });
@@ -18,4 +17,16 @@ function renderBoard(rowsBoard, columnsBoard) {
     }
 }
 
-renderBoard(rowsBoard, columnsBoard);
+function removeSquares() {
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
+}
+
+function setSquares() {
+    squares = prompt("Number of squares:");
+    removeSquares();
+    renderBoard(parseInt(squares));
+}
+
+renderBoard(16);
