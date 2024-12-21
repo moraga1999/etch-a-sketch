@@ -24,7 +24,7 @@ function removeSquares() {
 }
 
 function setSquares() {
-    squares = prompt("Number of squares:");
+    squares = prompt("Squares per row:");
     removeSquares();
     renderBoard(parseInt(squares));
 }
